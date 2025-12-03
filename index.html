@@ -1,19 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Yohoho Coin Setter – drag to bookmarks</title>
-  <style>
-    html,body{height:100%;margin:0;background:#111;color:#eee;font-family:system-ui,sans-serif;display:flex;align-items:center;justify-content:center;flex-direction:center;flex-direction:column;text-align:center}
-    h1{font-size:2rem;margin-bottom:.5em}
-    p{font-size:1.1rem;opacity:.7;margin-top:.5em}
-    #bm{display:inline-block;margin-top:1.5rem;padding:.75rem 1.5rem;border:2px solid #0ff;border-radius:6px;background:#000;color:#0ff;font-weight:700;text-decoration:none;cursor:move;transition:.2s}
-    #bm:hover{background:#0ff;color:#000}
-  </style>
+<meta charset="utf-8">
+<title>Drag-me bookmarklet</title>
+<style>
+body{margin:0;height:100vh;display:flex;align-items:center;justify-content:center;background:#111;font-family:system-ui}
+a#b{padding:1rem 2rem;border:3px solid #0ff;color:#0ff;background:#000;font:bold 1.4rem/1 system-ui;text-decoration:none;border-radius:6px;cursor:move}
+a#b:hover{background:#0ff;color:#000}
+</style>
 </head>
 <body>
-  <h1>Drag the button to your bookmarks bar</h1>
-  <a id="bm" title="Drag me!" href="javascript:(async()=>{if(location.hostname!=='yohoho.io')return alert('Open https://yohoho.io first');const n=Number(prompt('Coins to add:'));if(!Number.isFinite(n)||n<0)return;let p=window.playerStats||window.saveData||{};p.coinsOwned=(p.coinsOwned||0)+n;window.coinsOwned=p.coinsOwned;const s=localStorage.sessionId;if(s){await fetch(`https://s.yohoho.io/save?s=${s}`,{method:'POST',body:JSON.stringify(p),headers:{'Content-Type':'application/json'}})}alert('Coins updated!')})();">💰 Yohoho +Coins</a>
-  <p>Then go to <strong>yohoho.io</strong> and click the bookmark.</p>
+<a id="b"
+href="javascript:(async()=&gt;{if(location.hostname!=='yohoho.io')return alert('Go to yohoho.io first');const n=Number(prompt('Coins to add:'));if(!Number.isFinite(n)||n&lt;0)return;let p=window.playerStats||window.saveData||{};p.coinsOwned=(p.coinsOwned||0)+n;window.coinsOwned=p.coinsOwned;const s=localStorage.sessionId;if(s){await fetch(`https://s.yohoho.io/save?s=${s}`,{method:'POST',body:JSON.stringify(p),headers:{'Content-Type':'application/json'}})}alert('Coins updated!')})();">💰 Yohoho +Coins</a>
 </body>
 </html>
