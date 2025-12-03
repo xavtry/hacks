@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>MrMikey Coin Setter</title>
+  <title>Yohoho Coin Setter</title>
   <style>
     body{font-family:system-ui, sans-serif; display:flex; height:100vh; align-items:center; justify-content:center; flex-direction:column; background:#111; color:#eee}
     h1{margin-bottom:.5em}
@@ -13,7 +13,7 @@
 </head>
 <body>
   <h1>Drag the button to your bookmarks bar</h1>
-  <a id="bm" href="javascript:(async()=%3E%7Bif(!location.hostname.includes('mrmikey-boy.vercel.app'))return alert('Only works on https://mrmikey-boy.vercel.app');const s=localStorage.sessionId;if(!s)return alert('Session ID not found %E2%80%93 reload the game first.');const r=prompt('How many coins do you want?'),c=Number(r);if(!Number.isFinite(c)||c<0)return alert('Enter a positive number.');const a=e=%3E%60https://s.${location.hostname}/${e}?s=${s}%60,t=await fetch(a('login')).then(r=%3Er.ok?r.json():Promise.reject());t.coinsOwned=c;const n=await fetch(a('save'),%7Bmethod:'POST',body:JSON.stringify(t),headers:%7B'Content-Type':'application/json'%7D%7D);if(!n.ok)return alert('Save failed %E2%80%93 try again.');location.reload();})();">💰 Set Coins</a>
-  <p>Visit <a href="https://mrmikey-boy.vercel.app/mastery" target="_blank" style="color:#0ff">mrmikey-boy.vercel.app/mastery</a>, then click the bookmark.</p>
+  <a id="bm" href="javascript:(async()=>{if(location.hostname!=='yohoho.io')return alert('Switch to https://yohoho.io first');const n=Number(prompt('Coins to add:'));if(!Number.isFinite(n)||n<0)return;let p=window.playerStats||window.saveData||{};p.coinsOwned=(p.coinsOwned||0)+n;window.coinsOwned=p.coinsOwned;const s=localStorage.sessionId;if(s){await fetch(`https://s.yohoho.io/save?s=${s}`,{method:'POST',body:JSON.stringify(p),headers:{'Content-Type':'application/json'}})}alert('Coins updated!')})();">💰 Set Coins</a>
+  <p>Visit <a href="https://yohoho.io" target="_blank" style="color:#0ff">yohoho.io</a>, then click the bookmark.</p>
 </body>
 </html>
